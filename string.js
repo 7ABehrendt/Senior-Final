@@ -37,21 +37,71 @@ exports.checkLength = function(str){
 
 exports.containsUpper =function(str){
   var hasUpper = false
-  try
+  try{
+        for(let i=0;i < str.length;i++){
+            if(Inrange(str[i],65,90)){
+                hasUpper = true;
+  }
+  else{
+    throw new PasswordMessage("You need to have a uppercase letter")
+  }
+  catch(e){
+        console.log(e.name+": "+e.message);
+        return hasUpper;
 
 }
 
 
 exports.containsLower =function(str){
-
-}
+  var hasLower = false
+  try{
+        for(let i=0;i < str.length;i++){
+            if(Inrange(str[i],97,122)){
+                hasUpper = true;
+  }
+  else{
+    throw new PasswordMessage("You need to have a lowercase letter")
+  }
+  catch(e){
+        console.log(e.name+": "+e.message);
+        return hasLower;
 
 
 exports.containsNumerical =function(str){
+  var hasNumerical = false
+  try{
+        for(let i=0;i < str.length;i++){
+            if(Inrange(str[i],48,57)){
+                hasNumerical = true;
+  }
+  else{
+    throw new PasswordMessage("You need to have a Numerical")
+  }
+  catch(e){
+        console.log(e.name+": "+e.message);
+        return hasNumerical;
 
 }
 
 
 exports.containsSpecial =function(str){
+  hasSpecial = false;
+   let special = [33,64,35,36,37,94,38,42]
+   try{
+       for(let i=0;i < str.length;i++){
+           for(let c=0;c < special.length;c++){
+               if(str[i].charCodeAt(0) == special[c]){
+                   hasSpecial = true;
+               }
+           }
+       }
+       else{
+           throw new PasswordMessage('You need a special character.');
+       }
+   }
+   catch(e){
+       console.log(e.name+": "+e.message);
+       return hasSpecial;
+   }
 
 }
