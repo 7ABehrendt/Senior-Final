@@ -13,7 +13,9 @@ function getString(){
 
         //Conditional Statements here.
 
-
+        if(exports.checkAll(str) === false){
+                    passesAllChecks = false;
+                }
         if(!passesAllChecks){
             console.log("\nTry again\n");
             password.close();
